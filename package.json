@@ -95,18 +95,6 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.1"
   },
-  "lint-staged": {
-    "*.{ts,js,tsx,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.json": [
-      "prettier --write"
-    ],
-    "*.scss": [
-      "stylelint --fix"
-    ]
-  },
   "msw": {
     "workerDirectory": "public"
   }
