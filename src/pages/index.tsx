@@ -11,8 +11,8 @@ import Newsletter from 'src/components/sections/Newsletter'
 import ProductShelf from 'src/components/sections/ProductShelf'
 import ProductTiles from 'src/components/sections/ProductTiles'
 import { mark } from 'src/sdk/tests/mark'
-import { getPage } from 'src/server/cms'
-import type { PageContentType } from 'src/server/cms'
+// import { getPage } from 'src/server/cms'
+// import type { PageContentType } from 'src/server/cms'
 import CUSTOM_SECTIONS from 'src/customizations'
 
 import storeConfig from '../../store.config'
@@ -37,7 +37,7 @@ function Page({ sections, settings }: Props) {
   return (
     <>
       {/* SEO */}
-      <NextSeo
+      {/* <NextSeo
         title={settings.seo.title}
         description={settings.seo.description}
         titleTemplate={storeConfig.seo.titleTemplate}
@@ -48,7 +48,7 @@ function Page({ sections, settings }: Props) {
           title: settings.seo.title,
           description: settings.seo.description,
         }}
-      />
+      /> */}
       <SiteLinksSearchBoxJsonLd
         url={storeConfig.storeUrl}
         potentialActions={[
@@ -80,15 +80,16 @@ export const getStaticProps: GetStaticProps<
   Record<string, string>,
   Locator
 > = async (context) => {
-  const page = await getPage<PageContentType>({
-    ...(context.previewData?.contentType === 'page'
-      ? context.previewData
-      : { filters: { 'settings.seo.slug': '/' } }),
-    contentType: 'page',
-  })
+  console.log()
+  // const page = await getPage<PageContentType>({
+  //   ...(context.previewData?.contentType === 'page'
+  //     ? context.previewData
+  //     : { filters: { 'settings.seo.slug': '/' } }),
+  //   contentType: 'page',
+  // })
 
   return {
-    props: page,
+    props: { page: 'teste' },
   }
 }
 
